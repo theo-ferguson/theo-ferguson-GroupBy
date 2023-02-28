@@ -17,7 +17,10 @@ public class FileUtil {
 
             //returns true if there is another line to read
             while (sc.hasNextLine()) {
-                sql.append(sc.nextLine() + " ");
+                String line = sc.nextLine();
+                if(line.contains("--")) continue;
+
+                sql.append(line + " ");
             }
             sc.close();     //closes the scanner
         } catch (IOException e) {
